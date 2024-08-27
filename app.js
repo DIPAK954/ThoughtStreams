@@ -10,6 +10,9 @@ const crypto = require('crypto');
 const multerconfig = require('./config/multerconfig');
 const upload = require("./config/multerconfig");
 
+// Load environment variables
+require('dotenv').config();
+
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,7 +46,7 @@ app.post("/login", async function (req, res) {   // login logic and redirect pro
 
   bcrypt.compare(password, user.password, function (err, result) {
     if (result) {
-      let token = jwt.sign({ email: email, userid: user._id }, "diyyyy");
+      let token = jwt.sign({ email: email, userid: user._id }, process.env.JWT_SECRET);
       res.cookie("token", token);
       res.status(200).redirect("/profile");
     } else res.redirect("/login");
@@ -114,7 +117,7 @@ app.post("/register", async function (req, res) {          // This is register
         email,
         password: hash,
       });
-      let token = jwt.sign({ email: email, userid: user._id }, "diyyyy");
+      let token = jwt.sign({ email: email, userid: user._id }, process.env.JWT_SECRET);
       res.cookie("token", token);
       res.redirect("/login");
     });
@@ -130,10 +133,12 @@ app.get("/allposts", isLoggedIn, async (req, res) => {
 function isLoggedIn(req, res, next) {                   //This function use for authorized routing
   if (req.cookies.token === "") res.redirect("/login");
   else {
-    let data = jwt.verify(req.cookies.token, "diyyyy");
+    let data = jwt.verify(req.cookies.token, process.env.JWT_SECRET);
     req.user = data;
     next();
   }
 }
 
-app.listen(3000);
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});

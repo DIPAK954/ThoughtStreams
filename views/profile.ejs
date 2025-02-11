@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>ThoughtStreams</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-zinc-900 text-white flex items-center justify-center min-h-screen p-5">
@@ -15,13 +15,29 @@
             <a class="bg-red-500 hover:bg-red-600 transition px-4 py-2 rounded-md text-sm" href="/logout">Logout</a>
         </div>
 
-        <!-- Profile Section -->
-        <div class="flex items-center gap-3 mb-5">
-            <div class="w-12 h-12 rounded-full overflow-hidden">
-                <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilepic %>" alt="Profile Pic">
-            </div>
-            <h3 class="text-2xl font-semibold">Hello, <%= user.name %> 👋</h3>
-        </div>
+       <!-- Profile Section -->
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 p-5 bg-zinc-800 rounded-lg shadow-lg text-center sm:text-left">
+    
+    <!-- Profile Picture -->
+    <div class="relative w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500">
+        <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilepic %>" alt="Profile Pic">
+        
+        <!-- Edit Icon for Upload -->
+        <a href="/profile/upload" class="absolute bottom-1 right-1 bg-blue-500 text-white p-1.5 rounded-full hover:bg-blue-600 transition">
+            ✏️
+        </a>
+    </div>
+
+    <!-- User Info -->
+    <div class="flex flex-col gap-1">
+        <h3 class="text-2xl font-semibold text-white">Hello, <%= user.name %> 👋</h3>
+        <p class="text-sm text-zinc-400"><strong>Username:</strong> <%= user.username %></p>
+        <p class="text-sm text-zinc-400"><strong>Email:</strong> <%= user.email %></p>
+        
+    </div>
+
+</div>
+
 
         <!-- Create Post -->
         <h5 class="mb-3 text-lg text-zinc-400">You can create a post.</h5>
@@ -47,6 +63,9 @@
                             <%= post.likes.indexOf(user._id) === -1 ? "❤️" : "👎" %>
                         </a>
                         <a class="text-yellow-500 hover:underline" href="/edit/<%= post._id %>">Edit</a>
+                        <form action="/delete/<%= post._id %>" method="post" class="inline">
+                            <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <% }) %>

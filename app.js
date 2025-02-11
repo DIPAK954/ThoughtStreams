@@ -99,6 +99,32 @@ app.get("/edit/:id", isLoggedIn, async (req, res) => {
   res.render('edit', { post });
 });
 
+// Delete a Post
+app.post("/delete/:id", isLoggedIn, async (req, res) => {
+  try {
+    let post = await postModel.findById(req.params.id);
+    if (!post) return res.status(404).send("Post not found");
+
+    // Ensure the logged-in user is the owner of the post
+    if (post.user.toString() !== req.user.userid) {
+      return res.status(403).send("Unauthorized");
+    }
+
+    await postModel.findByIdAndDelete(req.params.id);
+
+    // Remove the post from the user's posts array
+    await userModel.findByIdAndUpdate(req.user.userid, {
+      $pull: { posts: req.params.id }
+    });
+
+    res.redirect("/profile");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error deleting post");
+  }
+});
+
+
 // Update a Post
 app.post("/update/:id", isLoggedIn, async (req, res) => {
   await postModel.findByIdAndUpdate(req.params.id, { content: req.body.content });

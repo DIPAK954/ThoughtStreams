@@ -10,6 +10,10 @@ ThoughtStreams offers you the perfect space to craft and publish your content.
 
  **Profile Page**
  ![App Screenshot](<public/images/Profile Page.png>)
+ 
+## 🔗 Demo
+
+👉 [https://thoughtstreams.onrender.com](https://thoughtstreams.onrender.com)
 
 ## Features
 

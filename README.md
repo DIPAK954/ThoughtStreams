@@ -41,7 +41,7 @@ ThoughtStreams offers you the perfect space to craft and publish your content.
 - `mongoose`  
 - `cookie-parser`  
 - `bcrypt`  
-- `jsonwebtoken` *(not "jasonwebtoken")*  
+- `jsonwebtoken` 
 - `multer`  
 
 ---

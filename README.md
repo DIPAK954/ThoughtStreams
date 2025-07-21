@@ -4,47 +4,48 @@ ThoughtStreams is a dynamic and user-friendly blog platform designed for creator
 Whether you're an aspiring writer, a seasoned blogger, or someone who simply loves to express thoughts through words, 
 ThoughtStreams offers you the perfect space to craft and publish your content.
 
- ## Screenshots
+## 📸 Screenshots
  **Home Page**
 ![App Screenshot](<public/images/Home Page.png>)
 
  **Profile Page**
  ![App Screenshot](<public/images/Profile Page.png>)
  
+---
+
 ## 🔗 Demo
 
 👉 [https://thoughtstreams.onrender.com](https://thoughtstreams.onrender.com)
 
-## Features
+---
 
-- User-Friendly Navigation
+## ✨ Features
 
-- Responsive Design
+- 🧭 User-Friendly Navigation  
+- 📱 Responsive Design  
+- 🔐 Authentication  
 
-- Authentication
+---
 
+## 🛠 Tech Stack
 
-## Tech Stack
+**Client:** EJS  
+**Server:** Node.js, Express.js, MongoDB
 
-**Client:** Ejs
+---
 
-**Server:** Node.Js, Express.Js & MongoDB
+## 📦 Dependencies
 
-## Dependencies
--Ejs
+- `ejs`  
+- `express`  
+- `mongoose`  
+- `cookie-parser`  
+- `bcrypt`  
+- `jsonwebtoken` *(not "jasonwebtoken")*  
+- `multer`  
 
--Express.js
+---
 
--Mongoose
-
--cookie-parser
-
--bcrypt
-
--jasonwebtoken
-
--multer
-
-## Author
+## 👤 Author
 
 - [@DIPAK954](https://github.com/DIPAK954)

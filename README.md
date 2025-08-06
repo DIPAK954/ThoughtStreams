@@ -1,9 +1,25 @@
 # ThoughtStreams - Social Media Platform
 
+<<<<<<< HEAD
 A modern social media platform built with Node.js backend and React.js frontend.
+=======
+ThoughtStreams is a dynamic and user-friendly blog platform designed for creators, writers, and thinkers to share their stories, ideas, and insights with the world. 
+Whether you're an aspiring writer, a seasoned blogger, or someone who simply loves to express thoughts through words, 
+ThoughtStreams offers you the perfect space to craft and publish your content.
 
-## Features
+## 📸 Screenshots
+ **Home Page**
+![App Screenshot](<public/images/Home Page.png>)
 
+ **Profile Page**
+ ![App Screenshot](<public/images/Profile Page.png>)
+ 
+---
+>>>>>>> 6c135ff6062ce92b5ab912f6d5bf8f1f0d732a8b
+
+## 🔗 Demo
+
+<<<<<<< HEAD
 - User registration and authentication
 - Create, edit, and delete posts
 - Like/unlike posts
@@ -11,9 +27,21 @@ A modern social media platform built with Node.js backend and React.js frontend.
 - User search functionality
 - View other users' profiles
 - Responsive design with Tailwind CSS
+=======
+👉 [https://thoughtstreams.onrender.com](https://thoughtstreams.onrender.com)
 
-## Tech Stack
+---
 
+## ✨ Features
+
+- 🧭 User-Friendly Navigation  
+- 📱 Responsive Design  
+- 🔐 Authentication  
+>>>>>>> 6c135ff6062ce92b5ab912f6d5bf8f1f0d732a8b
+
+---
+
+<<<<<<< HEAD
 ### Backend
 - Node.js
 - Express.js
@@ -64,6 +92,28 @@ A modern social media platform built with Node.js backend and React.js frontend.
    cd client
    npm start
    ```
+=======
+## 🛠 Tech Stack
+
+**Client:** EJS  
+**Server:** Node.js, Express.js, MongoDB
+
+---
+
+## 📦 Dependencies
+
+- `ejs`  
+- `express`  
+- `mongoose`  
+- `cookie-parser`  
+- `bcrypt`  
+- `jsonwebtoken` 
+- `multer`  
+
+---
+
+## 👤 Author
+>>>>>>> 6c135ff6062ce92b5ab912f6d5bf8f1f0d732a8b
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser
 

@@ -11,10 +11,10 @@ mongoose.connect(process.env.DB_URI, {
 });
 
 const userSchema = mongoose.Schema({
-    username: String,
-    name: String,
+    username: { type: String, required: true, unique: true, trim: true },
+    name: { type: String, trim: true },
     age: Number,
-    email: String,
+    email: { type: String, required: true, unique: true, trim: true },
     password: String,
     profilepic: {
         type: String,

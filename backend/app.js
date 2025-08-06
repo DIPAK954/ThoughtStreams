@@ -41,7 +41,12 @@ app.post("/api/register", async (req, res) => {
       bcrypt.hash(password, salt, async (err, hash) => {
         let newUser = await userModel.create({ username, name, age, email, password: hash });
         let token = jwt.sign({ email: email, userid: newUser._id }, process.env.JWT_SECRET, { expiresIn: '2h' });
-        res.cookie("token", token, { httpOnly: true });
+       res.cookie("token", token, {
+       httpOnly: true,
+       secure: true,
+       sameSite: 'None',
+       maxAge: 2 * 60 * 60 * 1000
+       });
         res.json({ success: true, message: "User registered successfully" });
       });
     });
@@ -66,7 +71,12 @@ app.post("/api/login", async (req, res) => {
     bcrypt.compare(password, user.password, (err, result) => {
       if (result) {
         let token = jwt.sign({ email: user.email, userid: user._id }, process.env.JWT_SECRET, { expiresIn: '2h' });
-        res.cookie("token", token, { httpOnly: true });
+        res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+        maxAge: 2 * 60 * 60 * 1000
+        });
         res.json({ success: true, message: "Login successful" });
       } else {
         res.status(400).json({ error: "Invalid credentials" });

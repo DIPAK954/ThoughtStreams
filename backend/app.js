@@ -26,11 +26,6 @@ app.use(cors({
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Serve static files from the React build directory
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-}
-
 // API Routes
 
 // Register a New User

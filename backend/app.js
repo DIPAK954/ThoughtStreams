@@ -18,7 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production'
+    ? 'https://thoughtstream-bbax.onrender.com'
+    : 'http://localhost:3000',
   credentials: true
 }));
 

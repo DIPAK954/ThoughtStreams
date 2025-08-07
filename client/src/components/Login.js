@@ -31,7 +31,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-900 text-white flex items-center justify-center p-5">
+    <div className="min-h-screen bg-zinc-900 text-white flex flex-col items-center justify-center p-5">
+      <div className="mb-6 text-center">
+        <h3 className="text-5xl font-bold text-blue-500 drop-shadow-lg">ThoughtStreams</h1>
+        <p className="text-sm text-zinc-400 mt-1">Flow your thoughts freely</p>
+      </div>
       <div className="w-full max-w-md bg-zinc-800 p-8 rounded-lg shadow-lg">
         <h3 className="text-3xl font-semibold mb-5 text-center">Login to Your Account</h3>
         <p className="text-center text-sm text-zinc-400 mb-5">Welcome back to the ThoughtStreams!</p>

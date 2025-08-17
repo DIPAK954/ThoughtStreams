@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await axios.get('/api/user');
+      const response = await axios.get('/api/user',{ withCredentials: true });
       setUser(response.data.user);
       setIsAuthenticated(true);
     } catch (error) {
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (identifier, password) => {
     try {
-      const response = await axios.post('/api/login', { identifier, password });
+      const response = await axios.post('/api/login', { identifier, password },{ withCredentials: true });
       if (response.data.success) {
         await checkAuthStatus();
         return { success: true };
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post('/api/register', userData);
+      const response = await axios.post('/api/register', userData, { withCredentials: true });
       if (response.data.success) {
         await checkAuthStatus();
         return { success: true };
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.get('/api/logout');
+      await axios.get('/api/logout', { withCredentials: true });
       setUser(null);
       setIsAuthenticated(false);
     } catch (error) {
